@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+			rel="stylesheet" />
+		<link rel="stylesheet" href="./dist/css/style.min.css" />
+		<title>Guess my number</title>
+	</head>
+	<body>
+		<header class="header">
+			<h1 class="header__title">Guess my number</h1>
+			<p class="header__text">(Between 1 and 20)</p>
+			<!-- TODO 
+	change textContent again === ? 
+		Again!	
+			-->
+			<button class="header__btn again">Again!</button>
+			<div class="header__numberBlock">
+				<div class="header__line"></div>
+				<div class="header__box">
+					<span class="header__numberText">?</span>
+				</div>
+			</div>
+		</header>
+		<main class="main">
+			<section class="main__left">
+				<input type="number" class="main__input" />
+				<button class="main__btn check">Check!</button>
+			</section>
+			<section class="main__right">
+				<p class="main__text main__text--message">Start guessing...</p>
+				<p class="main__text main__text--score">
+					Score:<span class="main__spanText score">20</span>
+				</p>
+				<p class="main__text main__text--highscore">
+					Highscore:<span class="main__spanText highscore">0</span>
+				</p>
+			</section>
+		</main>
+		<script src="./dist/js/main.min.js"></script>
+	</body>
+</html>
