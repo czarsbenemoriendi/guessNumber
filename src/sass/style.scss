@@ -85,9 +85,7 @@ body {
 		color: var(--font);
 		background: transparent;
 		text-align: center;
-		font-size: 2rem;
-		height: 60px;
-		width: 120px;
+		border: 1px solid var(--font);
 	}
 	&__btn {
 		width: 100px;
@@ -172,5 +170,88 @@ body {
 		&__spanText {
 			margin-left: 10px;
 		}
+	}
+}
+@media (min-width: 768px) {
+	.header {
+		&__title {
+			font-size: 3rem;
+			letter-spacing: 2px;
+		}
+		&__text {
+			font-size: 2rem;
+		}
+		&__btn {
+			font-size: 2rem;
+			width: 150px;
+			height: 70px;
+		}
+		&__line {
+			margin-top: 50px;
+			height: 6px;
+		}
+		&__box {
+			height: 100px;
+			width: 100px;
+		}
+		&__numberText {
+			font-size: 2rem;
+		}
+	}
+}
+.main {
+	&__input {
+		height: 90px;
+		width: 150px;
+		font-size: 2rem;
+	}
+	&__btn {
+		width: 130px;
+		height: 60px;
+		font-size: 1.8rem;
+	}
+
+	&__left {
+		grid-row: 2/5;
+		grid-column: 2/3;
+		gap: 20px;
+	}
+	&__right {
+		grid-row: 2/5;
+		grid-column: 3/6;
+		margin-left: 120px;
+		gap: 20px;
+	}
+	&__text {
+		font-size: 1.8rem;
+	}
+	&__spanText {
+		margin-left: 10px;
+	}
+}
+@media (min-width: 1024px) {
+}
+.header {
+	&__title {
+		font-size: 2.5rem;	
+		
+		margin-bottom: 20px;
+	}
+	&__text {
+		font-size: 1.8rem;
+	}
+	&__btn {
+		font-size: 1.4rem;
+	}
+	&__line {
+		margin-top: 50px;
+		height: 6px;
+	}
+	&__box {
+		height: 100px;
+		width: 100px;
+	}
+	&__numberText {
+		font-size: 2rem;
 	}
 }

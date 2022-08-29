@@ -24,17 +24,17 @@
 			<div class="header__numberBlock">
 				<div class="header__line"></div>
 				<div class="header__box">
-					<span class="header__numberText">?</span>
+					<span class="header__numberText numberText">?</span>
 				</div>
 			</div>
 		</header>
 		<main class="main">
 			<section class="main__left">
-				<input type="number" class="main__input" />
+				<input type="number" min="1" max="20" class="main__input input" />
 				<button class="main__btn check">Check!</button>
 			</section>
 			<section class="main__right">
-				<p class="main__text main__text--message">Start guessing...</p>
+				<p class="main__text main__text--message message">Start guessing...</p>
 				<p class="main__text main__text--score">
 					Score:<span class="main__spanText score">20</span>
 				</p>
@@ -43,6 +43,6 @@
 				</p>
 			</section>
 		</main>
-		<script src="./dist/js/main.min.js"></script>
+		<script src="./src/js/main.js"></script>
 	</body>
 </html>
