@@ -4,7 +4,7 @@ const btns = {
 	againBtn: document.querySelector('.again'),
 	checkBtn: document.querySelector('.check'),
 };
-const variableNumbers = {
+const variable = {
 	numberBox: document.querySelector('.numberText'),
 	score: document.querySelector('.score'),
 	highscore: document.querySelector('.highscore'),
@@ -12,25 +12,22 @@ const variableNumbers = {
 	input: document.querySelector('.input'),
 };
 
-const { numberBox, score, highscore, message, input } = variableNumbers;
+const { numberBox, score, highscore, message, input } = variable;
 const { againBtn, checkBtn } = btns;
-let randomNumber = 1;
-let inputNumber = input.value;
-let scoreValue = 6;
+let randomNumber;
+let inputNumber = Number(input.value);
 let scoreContent = Number(score.textContent);
 let highNum = highscore;
 let arr = [];
-let sum = 0;
+let num = 5;
 
 const makeRandomNumber = () => {
 	randomNumber = Math.ceil(Math.random() * 10);
-
 	return randomNumber;
 };
 
 const resetGame = () => {
-	let num = 5;
-	scoreContent = scoreValue;
+	scoreContent = 5;
 	score.textContent = num;
 	body.classList.remove('win-background', 'lose-background');
 	input.value = '';
@@ -41,23 +38,24 @@ const resetGame = () => {
 };
 
 const checkNumber = () => {
-	console.log(randomNumber);
+	let highscoreContent = Number(highscore.textContent);
+	let numberBoxContent = Number(numberBox.textContent);
 	if (score.textContent >= 1) {
 	} else {
 		arr = [];
-		if (highscore.textContent > numberBox.textContent) {
+		if (highscoreContent > numberBoxContent) {
 			message.textContent = 'You loose!';
 			body.classList.add('lose-background');
-			console.log('1');
 			return;
-		} else if (highscore.textContent < numberBox.textContent) {
-			console.log('2');
+		} else if (highscoreContent < numberBoxContent) {
+			highscore.textContent = numberBox.textContent;
 			message.textContent = 'You loose!';
 			body.classList.add('lose-background');
+		} else if (highscoreContent === numberBoxContent) {
 			highscore.textContent = numberBox.textContent;
+			message.textContent = 'You loose!';
+			body.classList.add('lose-background');
 		} else {
-			highscore.textContent = numberBox.textContent;
-			console.log('3');
 			message.textContent = 'You loose!';
 			body.classList.add('lose-background');
 		}
@@ -86,6 +84,6 @@ const checkNumber = () => {
 	}
 };
 
-// makeRandomNumber();
+makeRandomNumber();
 againBtn.addEventListener('click', resetGame);
 checkBtn.addEventListener('click', checkNumber);
