@@ -18,9 +18,13 @@ body {
 	background-color: var(--background);
 }
 
-// .win-background {
-// 	background-color: #60b347;
-// }
+.win-background {
+	background-color: #60b347 !important;
+}
+.lose-background {
+	background-color: #dc2929 !important;
+}
+
 .check,
 .again,
 .main__input {
@@ -233,8 +237,8 @@ body {
 }
 .header {
 	&__title {
-		font-size: 2.5rem;	
-		
+		font-size: 2.5rem;
+
 		margin-bottom: 20px;
 	}
 	&__text {

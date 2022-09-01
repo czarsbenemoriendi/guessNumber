@@ -1,4 +1,5 @@
 'use strict';
+const body = document.querySelector('body');
 const btns = {
 	againBtn: document.querySelector('.again'),
 	checkBtn: document.querySelector('.check'),
@@ -10,62 +11,81 @@ const variableNumbers = {
 	message: document.querySelector('.message'),
 	input: document.querySelector('.input'),
 };
+
 const { numberBox, score, highscore, message, input } = variableNumbers;
 const { againBtn, checkBtn } = btns;
-
-let numberToCheck;
+let randomNumber = 1;
 let inputNumber = input.value;
-let scoreNum;
+let scoreValue = 6;
+let scoreContent = Number(score.textContent);
 let highNum = highscore;
 let arr = [];
+let sum = 0;
 
 const makeRandomNumber = () => {
-	numberToCheck = Math.ceil(Math.random() * 20);
-	return numberToCheck;
-};
-const resetGame = () => {
-	if ((input.value = '')) {
-		score.textContent = 20;
-	} else {
-		highNum.textContent = arr[arr.length - 1];
-	}
+	randomNumber = Math.ceil(Math.random() * 10);
 
+	return randomNumber;
+};
+
+const resetGame = () => {
+	let num = 5;
+	scoreContent = scoreValue;
+	score.textContent = num;
+	body.classList.remove('win-background', 'lose-background');
 	input.value = '';
+	numberBox.textContent = highNum;
 	numberBox.textContent = '?';
-	score.textContent = 0;
 	message.textContent = 'Start guessing...';
 	makeRandomNumber();
 };
-// let scoreContent = Number(score.textContent);
+
 const checkNumber = () => {
+	console.log(randomNumber);
+	if (score.textContent >= 1) {
+	} else {
+		arr = [];
+		if (highscore.textContent > numberBox.textContent) {
+			message.textContent = 'You loose!';
+			body.classList.add('lose-background');
+			console.log('1');
+			return;
+		} else if (highscore.textContent < numberBox.textContent) {
+			console.log('2');
+			message.textContent = 'You loose!';
+			body.classList.add('lose-background');
+			highscore.textContent = numberBox.textContent;
+		} else {
+			highscore.textContent = numberBox.textContent;
+			console.log('3');
+			message.textContent = 'You loose!';
+			body.classList.add('lose-background');
+		}
+		return;
+	}
 	inputNumber = Number(input.value);
-	// for (let i = 20; i >= 0; i--) {
-	// 	if (inputNumber > numberToCheck) {
-	// 		scoreContent = scoreNum - 1;
-	// 		console.log('Liczba jest mniejsza');
-	// 	} else if (inputNumber < numberToCheck) {
-	// 		scoreContent - 1;
-	// 		console.log('Liczba jest większa');
-	// 	} else if (inputNumber === numberToCheck) {
-	// 		scoreNum = inputNumber + Number(score.innerText);
-	// 		score.textContent = scoreNum;
-	// 		numberBox.textContent = scoreNum;
-	// 		arr.push(scoreNum);
-	// 		makeRandomNumber();
-	// 	}
-	if (inputNumber > numberToCheck) {
-		console.log('Liczba jest mniejsza');
-	} else if (inputNumber < numberToCheck) {
-		console.log('Liczba jest większa');
-	} else if (inputNumber === numberToCheck) {
-		scoreNum = inputNumber + Number(score.innerText);
-		score.textContent = scoreNum;
-		numberBox.textContent = scoreNum;
-		arr.push(scoreNum);
+	if (inputNumber > randomNumber) {
+		body.classList.remove('win-background');
+		scoreContent--;
+		score.textContent = scoreContent;
+		message.textContent = 'Less value';
+	} else if (inputNumber < randomNumber) {
+		body.classList.remove('win-background');
+		scoreContent--;
+		score.textContent = scoreContent;
+		message.textContent = 'Higher value';
+	} else if (inputNumber === randomNumber) {
 		makeRandomNumber();
+		message.textContent = 'Correct value';
+		arr.push(score.textContent);
+		body.classList.add('win-background');
+		let newArr = arr.map(el => {
+			return Number(el);
+		});
+		numberBox.textContent = newArr.reduce((a, b) => a + b);
 	}
 };
 
-makeRandomNumber();
+// makeRandomNumber();
 againBtn.addEventListener('click', resetGame);
 checkBtn.addEventListener('click', checkNumber);
