@@ -1,4 +1,4 @@
-Link: https://guess-nmb.netlify.app/
+Link: https://stupendous-cocada-d99320.netlify.app
 
 I recreated these project during course https://www.udemy.com/course/the-complete-javascript-course/
 
